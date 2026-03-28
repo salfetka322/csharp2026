@@ -1,0 +1,14 @@
+/Users/b/RiderProjects/Practical2/Practical2/bin/Debug/net8.0/Practical2
+/Users/b/RiderProjects/Practical2/Practical2/bin/Debug/net8.0/Practical2.deps.json
+/Users/b/RiderProjects/Practical2/Practical2/bin/Debug/net8.0/Practical2.runtimeconfig.json
+/Users/b/RiderProjects/Practical2/Practical2/bin/Debug/net8.0/Practical2.dll
+/Users/b/RiderProjects/Practical2/Practical2/bin/Debug/net8.0/Practical2.pdb
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/Practical2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/Practical2.AssemblyInfoInputs.cache
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/Practical2.AssemblyInfo.cs
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/Practical2.csproj.CoreCompileInputs.cache
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/Practical2.dll
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/refint/Practical2.dll
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/Practical2.pdb
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/Practical2.genruntimeconfig.cache
+/Users/b/RiderProjects/Practical2/Practical2/obj/Debug/net8.0/ref/Practical2.dll
