@@ -1,0 +1,14 @@
+/Users/b/RiderProjects/Practical1/DelegatesCalc/bin/Debug/net8.0/DelegatesCalc
+/Users/b/RiderProjects/Practical1/DelegatesCalc/bin/Debug/net8.0/DelegatesCalc.deps.json
+/Users/b/RiderProjects/Practical1/DelegatesCalc/bin/Debug/net8.0/DelegatesCalc.runtimeconfig.json
+/Users/b/RiderProjects/Practical1/DelegatesCalc/bin/Debug/net8.0/DelegatesCalc.dll
+/Users/b/RiderProjects/Practical1/DelegatesCalc/bin/Debug/net8.0/DelegatesCalc.pdb
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/DelegatesCalc.GeneratedMSBuildEditorConfig.editorconfig
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/DelegatesCalc.AssemblyInfoInputs.cache
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/DelegatesCalc.AssemblyInfo.cs
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/DelegatesCalc.csproj.CoreCompileInputs.cache
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/DelegatesCalc.dll
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/refint/DelegatesCalc.dll
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/DelegatesCalc.pdb
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/DelegatesCalc.genruntimeconfig.cache
+/Users/b/RiderProjects/Practical1/DelegatesCalc/obj/Debug/net8.0/ref/DelegatesCalc.dll

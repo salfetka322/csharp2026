@@ -1,0 +1,14 @@
+/Users/b/RiderProjects/Practical1/FilterArr/bin/Debug/net8.0/FilterArr
+/Users/b/RiderProjects/Practical1/FilterArr/bin/Debug/net8.0/FilterArr.deps.json
+/Users/b/RiderProjects/Practical1/FilterArr/bin/Debug/net8.0/FilterArr.runtimeconfig.json
+/Users/b/RiderProjects/Practical1/FilterArr/bin/Debug/net8.0/FilterArr.dll
+/Users/b/RiderProjects/Practical1/FilterArr/bin/Debug/net8.0/FilterArr.pdb
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/FilterArr.GeneratedMSBuildEditorConfig.editorconfig
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/FilterArr.AssemblyInfoInputs.cache
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/FilterArr.AssemblyInfo.cs
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/FilterArr.csproj.CoreCompileInputs.cache
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/FilterArr.dll
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/refint/FilterArr.dll
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/FilterArr.pdb
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/FilterArr.genruntimeconfig.cache
+/Users/b/RiderProjects/Practical1/FilterArr/obj/Debug/net8.0/ref/FilterArr.dll

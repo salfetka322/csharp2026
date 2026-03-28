@@ -1,0 +1,14 @@
+/Users/b/RiderProjects/Practical1/Logg/bin/Debug/net8.0/Logg
+/Users/b/RiderProjects/Practical1/Logg/bin/Debug/net8.0/Logg.deps.json
+/Users/b/RiderProjects/Practical1/Logg/bin/Debug/net8.0/Logg.runtimeconfig.json
+/Users/b/RiderProjects/Practical1/Logg/bin/Debug/net8.0/Logg.dll
+/Users/b/RiderProjects/Practical1/Logg/bin/Debug/net8.0/Logg.pdb
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/Logg.GeneratedMSBuildEditorConfig.editorconfig
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/Logg.AssemblyInfoInputs.cache
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/Logg.AssemblyInfo.cs
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/Logg.csproj.CoreCompileInputs.cache
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/Logg.dll
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/refint/Logg.dll
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/Logg.pdb
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/Logg.genruntimeconfig.cache
+/Users/b/RiderProjects/Practical1/Logg/obj/Debug/net8.0/ref/Logg.dll

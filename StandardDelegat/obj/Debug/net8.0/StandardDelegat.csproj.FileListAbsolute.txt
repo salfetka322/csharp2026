@@ -1,0 +1,14 @@
+/Users/b/RiderProjects/Practical1/StandardDelegat/bin/Debug/net8.0/StandardDelegat
+/Users/b/RiderProjects/Practical1/StandardDelegat/bin/Debug/net8.0/StandardDelegat.deps.json
+/Users/b/RiderProjects/Practical1/StandardDelegat/bin/Debug/net8.0/StandardDelegat.runtimeconfig.json
+/Users/b/RiderProjects/Practical1/StandardDelegat/bin/Debug/net8.0/StandardDelegat.dll
+/Users/b/RiderProjects/Practical1/StandardDelegat/bin/Debug/net8.0/StandardDelegat.pdb
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/StandardDelegat.GeneratedMSBuildEditorConfig.editorconfig
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/StandardDelegat.AssemblyInfoInputs.cache
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/StandardDelegat.AssemblyInfo.cs
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/StandardDelegat.csproj.CoreCompileInputs.cache
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/StandardDelegat.dll
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/refint/StandardDelegat.dll
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/StandardDelegat.pdb
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/StandardDelegat.genruntimeconfig.cache
+/Users/b/RiderProjects/Practical1/StandardDelegat/obj/Debug/net8.0/ref/StandardDelegat.dll

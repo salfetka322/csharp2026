@@ -1,0 +1,14 @@
+/Users/b/RiderProjects/Practical1/DynamicValid/bin/Debug/net8.0/DynamicValid
+/Users/b/RiderProjects/Practical1/DynamicValid/bin/Debug/net8.0/DynamicValid.deps.json
+/Users/b/RiderProjects/Practical1/DynamicValid/bin/Debug/net8.0/DynamicValid.runtimeconfig.json
+/Users/b/RiderProjects/Practical1/DynamicValid/bin/Debug/net8.0/DynamicValid.dll
+/Users/b/RiderProjects/Practical1/DynamicValid/bin/Debug/net8.0/DynamicValid.pdb
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/DynamicValid.GeneratedMSBuildEditorConfig.editorconfig
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/DynamicValid.AssemblyInfoInputs.cache
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/DynamicValid.AssemblyInfo.cs
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/DynamicValid.csproj.CoreCompileInputs.cache
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/DynamicValid.dll
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/refint/DynamicValid.dll
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/DynamicValid.pdb
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/DynamicValid.genruntimeconfig.cache
+/Users/b/RiderProjects/Practical1/DynamicValid/obj/Debug/net8.0/ref/DynamicValid.dll

@@ -1,0 +1,14 @@
+/Users/b/RiderProjects/Practical1/Multicast/bin/Debug/net8.0/Multicast
+/Users/b/RiderProjects/Practical1/Multicast/bin/Debug/net8.0/Multicast.deps.json
+/Users/b/RiderProjects/Practical1/Multicast/bin/Debug/net8.0/Multicast.runtimeconfig.json
+/Users/b/RiderProjects/Practical1/Multicast/bin/Debug/net8.0/Multicast.dll
+/Users/b/RiderProjects/Practical1/Multicast/bin/Debug/net8.0/Multicast.pdb
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/Multicast.GeneratedMSBuildEditorConfig.editorconfig
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/Multicast.AssemblyInfoInputs.cache
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/Multicast.AssemblyInfo.cs
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/Multicast.csproj.CoreCompileInputs.cache
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/Multicast.dll
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/refint/Multicast.dll
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/Multicast.pdb
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/Multicast.genruntimeconfig.cache
+/Users/b/RiderProjects/Practical1/Multicast/obj/Debug/net8.0/ref/Multicast.dll
