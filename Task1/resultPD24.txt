@@ -1,0 +1,18 @@
+uppercase 
+IF YOU CAN DREAM A WORLD, C# CAN BUILD IT.
+AS THE PRIMARY LANGUAGE FOR UNITY, IT EMPOWERS CREATORS TO BRING 3D UNIVERSES TO LIFE.
+CODING IN C# ISN'T JUST WORK; IT’S PURE DIGITAL CRAFTSMANSHIP.
+PD24
+
+char count 
+Characters: 42
+Characters: 86
+Characters: 62
+Characters: 4
+
+word count 
+Words: 10
+Words: 15
+Words: 10
+Words: 1
+
