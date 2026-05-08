@@ -1,0 +1,12 @@
+bin/
+obj/
+target/
+src/
+.idea/
+.DS_Store
+*.iml
+mvnw
+mvnw.cmd
+pom.xml
+HELP.md
+test-api.sh

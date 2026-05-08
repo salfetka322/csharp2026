@@ -1,0 +1,22 @@
+import CreateProfileContent from './CreateProfileContent';
+
+const CreateProfileSection = () => {
+  return (
+    <section className='relative w-full min-h-screen bg-gradient-to-br from-[#050505] via-[#0a0a0a] via-[#0f0f0f] to-[#050505] py-8 md:py-16 px-4 md:px-6'>
+      <div className='fixed inset-0 overflow-hidden pointer-events-none'>
+        <div className='absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-gray-950/20 via-gray-900/12 to-transparent rounded-full blur-3xl' />
+        <div className='absolute bottom-0 right-0 w-[800px] h-[800px] bg-gradient-to-tl from-gray-900/20 via-gray-800/12 to-transparent rounded-full blur-3xl' />
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-gray-950/15 via-gray-900/10 to-transparent rounded-full blur-3xl' />
+        <div className='absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-gray-900/18 via-transparent to-transparent rounded-full blur-3xl' />
+      </div>
+      <div className='relative z-10'>
+        <h1 className='mb-6 md:mb-10 text-2xl md:text-3xl lg:text-5xl font-bold text-center text-white'>
+          Створити обліковий запис
+        </h1>
+        <CreateProfileContent />
+      </div>
+    </section>
+  );
+};
+
+export default CreateProfileSection;

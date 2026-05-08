@@ -1,0 +1,15 @@
+.DS_Store
+.idea/
+.vscode/
+
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/target/
+**/build/
+
+backend/uploads/
+*.log
+*.local
