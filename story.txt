@@ -1,0 +1,3 @@
+﻿This is a small story file.
+It is used for practical work number three.
+The analyzer counts lines, words, and characters.
