@@ -1,14 +1,13 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Loomi.Backend.Data;
 using Loomi.Backend.Entities;
-using Microsoft.EntityFrameworkCore;
+using Loomi.Backend.Repositories;
 
 namespace Loomi.Backend.Services;
 
 public static class CurrentUser
 {
-    public static async Task<User?> Resolve(HttpContext context, LoomiDbContext db)
+    public static async Task<User?> Resolve(HttpContext context, IUserRepository users)
     {
         var email = context.User.FindFirstValue(ClaimTypes.Email)
             ?? context.User.FindFirstValue(ClaimTypes.NameIdentifier)
@@ -17,6 +16,6 @@ public static class CurrentUser
 
         return string.IsNullOrWhiteSpace(email)
             ? null
-            : await db.Users.FirstOrDefaultAsync(x => x.Email == email);
+            : await users.GetByEmail(email);
     }
 }

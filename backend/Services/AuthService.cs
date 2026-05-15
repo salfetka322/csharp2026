@@ -1,17 +1,16 @@
-using Loomi.Backend.Data;
 using Loomi.Backend.Dtos;
 using Loomi.Backend.Entities;
 using Loomi.Backend.Exceptions;
-using Microsoft.EntityFrameworkCore;
+using Loomi.Backend.Repositories;
 
 namespace Loomi.Backend.Services;
 
-public sealed class AuthService(LoomiDbContext db, JwtService jwtService)
+public sealed class AuthService(IUserRepository users, JwtService jwtService)
 {
     public async Task<AuthResponse> Register(string email, string password)
     {
         email = email.Trim();
-        if (await db.Users.AnyAsync(x => x.Email == email))
+        if (await users.ExistsByEmail(email))
         {
             throw new ResourceAlreadyExistsException("Email already exists");
         }
@@ -22,15 +21,15 @@ public sealed class AuthService(LoomiDbContext db, JwtService jwtService)
             Password = BCrypt.Net.BCrypt.HashPassword(password)
         };
 
-        db.Users.Add(user);
-        await db.SaveChangesAsync();
+        users.Add(user);
+        await users.SaveChangesAsync();
         return BuildResponse(user);
     }
 
     public async Task<AuthResponse> Login(string email, string password)
     {
         email = email.Trim();
-        var user = await db.Users.FirstOrDefaultAsync(x => x.Email == email)
+        var user = await users.GetByEmail(email)
             ?? throw new BadCredentialsException("Invalid email or password");
 
         if (string.IsNullOrWhiteSpace(user.Password))

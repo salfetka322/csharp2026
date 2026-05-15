@@ -1,6 +1,6 @@
-using Loomi.Backend.Data;
 using Loomi.Backend.Dtos;
 using Loomi.Backend.Exceptions;
+using Loomi.Backend.Repositories;
 using Loomi.Backend.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +9,7 @@ namespace Loomi.Backend.Controllers;
 
 [ApiController]
 [Route("api/auth")]
-public sealed class AuthController(AuthService authService, GoogleAuthService googleAuthService, LoomiDbContext db) : ControllerBase
+public sealed class AuthController(AuthService authService, GoogleAuthService googleAuthService, IUserRepository users) : ControllerBase
 {
     [HttpPost("register")]
     public async Task<ActionResult<AuthResponse>> Register([FromBody] RegisterRequest request)
@@ -28,7 +28,7 @@ public sealed class AuthController(AuthService authService, GoogleAuthService go
     [HttpGet("refresh")]
     public async Task<ActionResult<AuthResponse>> Refresh()
     {
-        var user = await CurrentUser.Resolve(HttpContext, db) ?? throw new BadCredentialsException("User not authenticated");
+        var user = await CurrentUser.Resolve(HttpContext, users) ?? throw new BadCredentialsException("User not authenticated");
         return Ok(authService.Refresh(user));
     }
 

@@ -1,7 +1,7 @@
-using Loomi.Backend.Data;
 using Loomi.Backend.Dtos;
 using Loomi.Backend.Exceptions;
 using Loomi.Backend.Mapping;
+using Loomi.Backend.Repositories;
 using Loomi.Backend.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,12 +14,12 @@ namespace Loomi.Backend.Controllers;
 public sealed class ProfileController(
     ProfileService profileService,
     FileStorageService fileStorageService,
-    LoomiDbContext db) : ControllerBase
+    IUserRepository users) : ControllerBase
 {
     [HttpGet("me")]
     public async Task<ActionResult<ProfileDto>> GetMyProfile()
     {
-        var user = await CurrentUser.Resolve(HttpContext, db) ?? throw new ResourceNotFoundException("User not authenticated");
+        var user = await CurrentUser.Resolve(HttpContext, users) ?? throw new ResourceNotFoundException("User not authenticated");
         var profile = await profileService.GetByUser(user) ?? throw new ResourceNotFoundException("Profile not found");
         return Ok(ProfileMapper.ToDto(profile));
     }
@@ -28,7 +28,7 @@ public sealed class ProfileController(
     [Consumes("multipart/form-data")]
     public async Task<ActionResult<ProfileDto>> CreateOrUpdateProfile([FromForm] ProfileForm form)
     {
-        var user = await CurrentUser.Resolve(HttpContext, db) ?? throw new ResourceNotFoundException("User not authenticated");
+        var user = await CurrentUser.Resolve(HttpContext, users) ?? throw new ResourceNotFoundException("User not authenticated");
         if (string.IsNullOrWhiteSpace(form.Name))
         {
             throw new ArgumentException("Name is required");
@@ -67,7 +67,7 @@ public sealed class ProfileController(
     [HttpPut]
     public async Task<ActionResult<ProfileDto>> UpdateProfile([FromBody] ProfileDto dto)
     {
-        var user = await CurrentUser.Resolve(HttpContext, db) ?? throw new ResourceNotFoundException("User not authenticated");
+        var user = await CurrentUser.Resolve(HttpContext, users) ?? throw new ResourceNotFoundException("User not authenticated");
         var existing = await profileService.GetByUser(user) ?? throw new ResourceNotFoundException("Profile not found");
         dto.Id = existing.Id;
         dto.Photos = dto.Photos is { Count: > 0 } ? dto.Photos : existing.Photos.Select(x => x.PhotoUrl).ToList();

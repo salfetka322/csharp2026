@@ -1,7 +1,7 @@
-using Loomi.Backend.Data;
 using Loomi.Backend.Dtos;
 using Loomi.Backend.Exceptions;
 using Loomi.Backend.Mapping;
+using Loomi.Backend.Repositories;
 using Loomi.Backend.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +11,7 @@ namespace Loomi.Backend.Controllers;
 [Authorize]
 [ApiController]
 [Route("api/recommendations")]
-public sealed class RecommendationController(ProfileService profileService, LoomiDbContext db) : ControllerBase
+public sealed class RecommendationController(ProfileService profileService, IUserRepository users) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<List<ProfileDto>>> GetRecommendations([FromQuery] int limit = 10)
@@ -21,7 +21,7 @@ public sealed class RecommendationController(ProfileService profileService, Loom
             limit = 10;
         }
 
-        var user = await CurrentUser.Resolve(HttpContext, db) ?? throw new ResourceNotFoundException("User not authenticated");
+        var user = await CurrentUser.Resolve(HttpContext, users) ?? throw new ResourceNotFoundException("User not authenticated");
         var profile = await profileService.GetByUser(user)
             ?? throw new ResourceNotFoundException("Profile not found. Please create your profile first.");
         var recommendations = await profileService.GetRecommendationsFor(profile, limit);

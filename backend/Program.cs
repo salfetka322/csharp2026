@@ -2,6 +2,7 @@ using System.Text;
 using System.Text.Json;
 using Loomi.Backend.Data;
 using Loomi.Backend.Exceptions;
+using Loomi.Backend.Repositories;
 using Loomi.Backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,9 @@ builder.Services.AddControllers()
 
 builder.Services.AddDbContext<LoomiDbContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddHttpClient();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<ILikeRepository, LikeRepository>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<FileStorageService>();
 builder.Services.AddScoped<GoogleAuthService>();

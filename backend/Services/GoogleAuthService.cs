@@ -1,13 +1,12 @@
 using System.Text.Json;
-using Loomi.Backend.Data;
 using Loomi.Backend.Dtos;
 using Loomi.Backend.Entities;
 using Loomi.Backend.Exceptions;
-using Microsoft.EntityFrameworkCore;
+using Loomi.Backend.Repositories;
 
 namespace Loomi.Backend.Services;
 
-public sealed class GoogleAuthService(LoomiDbContext db, AuthService authService, IHttpClientFactory httpClientFactory)
+public sealed class GoogleAuthService(IUserRepository users, AuthService authService, IHttpClientFactory httpClientFactory)
 {
     private const string GoogleTokenInfoUrl = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=";
 
@@ -36,12 +35,12 @@ public sealed class GoogleAuthService(LoomiDbContext db, AuthService authService
                 throw new BadCredentialsException("Google token does not contain email");
             }
 
-            var user = await db.Users.FirstOrDefaultAsync(x => x.Email == email);
+            var user = await users.GetByEmail(email);
             if (user is null)
             {
                 user = new User { Email = email, Password = null };
-                db.Users.Add(user);
-                await db.SaveChangesAsync();
+                users.Add(user);
+                await users.SaveChangesAsync();
             }
 
             return authService.BuildResponse(user);

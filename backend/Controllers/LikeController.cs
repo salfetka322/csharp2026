@@ -1,6 +1,6 @@
-using Loomi.Backend.Data;
 using Loomi.Backend.Dtos;
 using Loomi.Backend.Exceptions;
+using Loomi.Backend.Repositories;
 using Loomi.Backend.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,12 +10,12 @@ namespace Loomi.Backend.Controllers;
 [Authorize]
 [ApiController]
 [Route("api/likes")]
-public sealed class LikeController(LikeService likeService, LoomiDbContext db) : ControllerBase
+public sealed class LikeController(LikeService likeService, IUserRepository users) : ControllerBase
 {
     [HttpPost]
     public async Task<ActionResult<LikeDto>> Like([FromBody] LikeDto request)
     {
-        var user = await CurrentUser.Resolve(HttpContext, db) ?? throw new ResourceNotFoundException("User not authenticated");
+        var user = await CurrentUser.Resolve(HttpContext, users) ?? throw new ResourceNotFoundException("User not authenticated");
         if (request.ToProfileId is null)
         {
             throw new ArgumentException("Profile ID is required");

@@ -1,25 +1,24 @@
-using Loomi.Backend.Data;
 using Loomi.Backend.Dtos;
 using Loomi.Backend.Entities;
 using Loomi.Backend.Exceptions;
-using Microsoft.EntityFrameworkCore;
+using Loomi.Backend.Repositories;
 
 namespace Loomi.Backend.Services;
 
-public sealed class ProfileService(LoomiDbContext db)
+public sealed class ProfileService(IProfileRepository profiles, ILikeRepository likes)
 {
     public Task<Profile?> GetByUser(User? user)
     {
         return user is null
             ? Task.FromResult<Profile?>(null)
-            : QueryProfiles().FirstOrDefaultAsync(x => x.UserId == user.Id);
+            : profiles.GetByUserId(user.Id);
     }
 
-    public Task<Profile?> GetById(long id) => QueryProfiles().FirstOrDefaultAsync(x => x.Id == id);
+    public Task<Profile?> GetById(long id) => profiles.GetById(id);
 
     public async Task<Profile> SaveOrUpdate(User user, ProfileDto dto)
     {
-        var existing = await QueryProfiles().FirstOrDefaultAsync(x => x.UserId == user.Id);
+        var existing = await profiles.GetByUserId(user.Id);
         if (existing is null)
         {
             if (string.IsNullOrWhiteSpace(dto.Name))
@@ -33,13 +32,13 @@ public sealed class ProfileService(LoomiDbContext db)
             }
 
             existing = new Profile { UserId = user.Id, User = user };
-            db.Profiles.Add(existing);
+            profiles.Add(existing);
         }
 
         ApplyScalarFields(existing, dto);
         ReplaceCollections(existing, dto);
-        await db.SaveChangesAsync();
-        return (await QueryProfiles().FirstAsync(x => x.Id == existing.Id));
+        await profiles.SaveChangesAsync();
+        return (await profiles.GetById(existing.Id))!;
     }
 
     public async Task<List<Profile>> GetRecommendationsFor(Profile baseProfile, int limit)
@@ -51,7 +50,7 @@ public sealed class ProfileService(LoomiDbContext db)
 
         var baseInterests = baseProfile.Interests.Select(x => x.Interest).ToHashSet();
         var matchedIds = await GetMatchedProfileIds(baseProfile.Id);
-        var allProfiles = await QueryProfiles().Where(x => x.Id != baseProfile.Id).ToListAsync();
+        var allProfiles = await profiles.GetAllExcept(baseProfile.Id);
 
         return allProfiles
             .Where(x => !matchedIds.Contains(x.Id))
@@ -65,15 +64,6 @@ public sealed class ProfileService(LoomiDbContext db)
             .Take(limit)
             .Select(x => x.Profile)
             .ToList();
-    }
-
-    private IQueryable<Profile> QueryProfiles()
-    {
-        return db.Profiles
-            .Include(x => x.User)
-            .Include(x => x.Interests)
-            .Include(x => x.GenderInterests)
-            .Include(x => x.Photos);
     }
 
     private static void ApplyScalarFields(Profile profile, ProfileDto dto)
@@ -121,11 +111,8 @@ public sealed class ProfileService(LoomiDbContext db)
 
     private async Task<HashSet<long>> GetMatchedProfileIds(long profileId)
     {
-        var likedIds = await db.Likes.Where(x => x.FromProfileId == profileId).Select(x => x.ToProfileId).ToListAsync();
-        var mutualIds = await db.Likes
-            .Where(x => likedIds.Contains(x.FromProfileId) && x.ToProfileId == profileId)
-            .Select(x => x.FromProfileId)
-            .ToListAsync();
+        var likedIds = await likes.GetLikedProfileIds(profileId);
+        var mutualIds = await likes.GetMutualLikedProfileIds(profileId, likedIds);
         return mutualIds.ToHashSet();
     }
 

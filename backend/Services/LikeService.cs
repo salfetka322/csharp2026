@@ -1,19 +1,18 @@
-using Loomi.Backend.Data;
 using Loomi.Backend.Dtos;
 using Loomi.Backend.Entities;
 using Loomi.Backend.Exceptions;
-using Microsoft.EntityFrameworkCore;
+using Loomi.Backend.Repositories;
 
 namespace Loomi.Backend.Services;
 
-public sealed class LikeService(LoomiDbContext db)
+public sealed class LikeService(IProfileRepository profiles, ILikeRepository likes)
 {
     public async Task<LikeDto> Like(User user, long toProfileId)
     {
-        var fromProfile = await db.Profiles.FirstOrDefaultAsync(x => x.UserId == user.Id)
+        var fromProfile = await profiles.GetByUserId(user.Id)
             ?? throw new ResourceNotFoundException("Profile not found for current user");
 
-        var toProfile = await db.Profiles.FirstOrDefaultAsync(x => x.Id == toProfileId)
+        var toProfile = await profiles.GetById(toProfileId)
             ?? throw new ResourceNotFoundException("Target profile not found");
 
         if (fromProfile.Id == toProfile.Id)
@@ -21,14 +20,14 @@ public sealed class LikeService(LoomiDbContext db)
             throw new ArgumentException("Cannot like your own profile");
         }
 
-        var exists = await db.Likes.AnyAsync(x => x.FromProfileId == fromProfile.Id && x.ToProfileId == toProfile.Id);
+        var exists = await likes.Exists(fromProfile.Id, toProfile.Id);
         if (!exists)
         {
-            db.Likes.Add(new Like { FromProfileId = fromProfile.Id, ToProfileId = toProfile.Id });
-            await db.SaveChangesAsync();
+            likes.Add(new Like { FromProfileId = fromProfile.Id, ToProfileId = toProfile.Id });
+            await likes.SaveChangesAsync();
         }
 
-        var isMatch = await db.Likes.AnyAsync(x => x.FromProfileId == toProfile.Id && x.ToProfileId == fromProfile.Id);
+        var isMatch = await likes.Exists(toProfile.Id, fromProfile.Id);
         return BuildResponse(isMatch, toProfile);
     }
 
